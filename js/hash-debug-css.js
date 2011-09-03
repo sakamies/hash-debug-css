@@ -1,7 +1,9 @@
 window.onload = function(){ //using onload because we want images to be loaded when checking layout
-//	if(window.location.hash.match(/^#debug/)) {
-	if(window.location.hash.indexOf('#debug(') !== -1 && window.location.hash.indexOf(')') > 6) {
-
+	if(window.location.hash.match(/^#debug$/)) {
+		document.body.classList.add('debug');
+	}
+	else if(window.location.hash.indexOf('#debug(') !== -1 && window.location.hash.indexOf(')') > 6) {
+		document.body.classList.add('debug');
 		var selector = window.location.hash
 						.replace('#debug', '')
 						.replace('(', '')
