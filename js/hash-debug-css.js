@@ -1,8 +1,10 @@
 window.onload = function(){ //using onload because we want images to be loaded when checking layout
 	if(window.location.hash.match(/^#debug$/)) {
+		console.log('#debug:')
 		document.body.classList.add('debug');
 	}
 	else if(window.location.hash.indexOf('#debug(') !== -1 && window.location.hash.indexOf(')') > 6) {
+		console.log('#debug:');
 		document.body.classList.add('debug');
 		var selector = window.location.hash
 						.replace('#debug', '')
@@ -33,11 +35,10 @@ window.onload = function(){ //using onload because we want images to be loaded w
 				elements[element].style.cssText += 'outline: 1px solid #FF00FF;';
 				console.log(elements[element]);
 			}
-			console.log('#debug css outlines added');
-			console.log('selector: ' + selector);
+			console.log('Outlines added to elements matching: "' + selector + '"');
 		}
 		catch(error) {
-			console.error('#debug css outlines not added');
+			console.error('Outlines not added');
 			if (error.code == 12) {
 				console.error('Invalid selector: ' + selector);
 			}
