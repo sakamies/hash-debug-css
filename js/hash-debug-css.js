@@ -1,4 +1,4 @@
-window.onload = function(){ //using onload because we want images to be loaded when checking layout
+window.addEventListener('load', function() { //using onload because we want images to be loaded when checking layout
 	if(window.location.hash.match(/^#debug$/)) {
 		console.log('#debug:')
 		document.body.classList.add('debug');
@@ -47,4 +47,4 @@ window.onload = function(){ //using onload because we want images to be loaded w
 			}
 		}
 	}
-};
+});
