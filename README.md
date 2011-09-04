@@ -1,7 +1,7 @@
 Hash debug css
 =============
 
-Add (conflict) some debug styles to your html with a url hash of #debug
+Add some debug styles to your html with a url hash of #debug
 
 Usage
 ---
