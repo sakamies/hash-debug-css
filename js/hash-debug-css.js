@@ -1,10 +1,8 @@
 window.addEventListener('load', function() { //using onload because we want images to be loaded when checking layout
 	if(window.location.hash.match(/^#debug$/)) {
-		console.log('#debug:')
 		document.body.classList.add('debug');
 	}
 	else if(window.location.hash.indexOf('#debug(') !== -1 && window.location.hash.indexOf(')') > 6) {
-		console.log('#debug:');
 		document.body.classList.add('debug');
 		var selector = window.location.hash
 						.replace('#debug', '')
@@ -33,18 +31,18 @@ window.addEventListener('load', function() { //using onload because we want imag
 			// -> https://developer.mozilla.org/En/DOM/NodeList#Example
 			for (element = 0; element < elements.length; ++element) {
 				elements[element].style.cssText += 'outline: 1px solid #FF00FF;';
-				console.log(elements[element]);
 			}
-			console.log('Outlines added to elements matching: "' + selector + '"');
 		}
 		catch(error) {
-			console.error('Outlines not added');
-			if (error.code == 12) {
-				console.error('Invalid selector: ' + selector);
+            var node = document.createElement('p');
+            node.style.cssText += 'border: 1px solid #ff9999; font-family: sans-serif;padding: 5px; margin: 5px; font-size: 14px; background-color: #ffdddd;';
+            if(error.code == 12) {
+                node.innerHTML = '[Hash-debug-css] Invalid selector: <strong>'+selector+'</strong>';
 			}
 			else {
-				console.error(error);
+                node.innerHTML = '[Hash-debug-css] <strong>Error: </strong>'+error;
 			}
+            document.body.insertBefore(node, document.body.firstChild);
 		}
 	}
 });
